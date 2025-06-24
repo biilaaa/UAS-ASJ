@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Daftar Film</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #a3d5ff;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #007bff;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 8px;
+        text-decoration: none;
+        margin-bottom: 15px;
+        transition: background-color 0.3s;
+      }
+
+      .btn:hover {
+        background-color: #0056b3;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        background-color: #b1e5ff;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: center;
+      }
+
+      thead {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #eaf6ff;
+      }
+
+      .aksi a {
+        margin: 0 5px;
+        text-decoration: none;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      .edit {
+        background-color: #28a745;
+      }
+
+      .edit:hover {
+        background-color: #218838;
+      }
+
+      .hapus {
+        background-color: #dc3545;
+      }
+
+      .hapus:hover {
+        background-color: #c82333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Daftar Film</h1>
+      <a class="btn" href="{{ url_for('add_film') }}">+ Tambah Film</a>
+
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Judul</th>
+            <th>Sutradara</th>
+            <th>Tahun</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for film in film_list %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ film.judul }}</td>
+            <td>{{ film.sutradara }}</td>
+            <td>{{ film.tahun }}</td>
+            <td class="aksi">
+              <a href="{{ url_for('edit_film', id=film.id) }}" class="edit"
+                >Edit</a
+              >
+              <a href="{{ url_for('delete_film', id=film.id) }}" class="hapus"
+                >Hapus</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

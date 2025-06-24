@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tambah Film</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #a3d5ff;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 500px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #007bff;
+        margin-bottom: 20px;
+      }
+
+      form input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0 20px;
+        border: 1px solid #007bff;
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+
+      form input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 8px;
+        width: 100%;
+        font-size: 16px;
+      }
+
+      form input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+
+      a {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tambah Film</h1>
+      <form method="post">
+        Judul: <input type="text" name="judul" required /><br />
+        Sutradara: <input type="text" name="sutradara" required /><br />
+        Tahun: <input type="text" name="tahun" required /><br />
+        <input type="submit" value="Tambah" />
+      </form>
+      <a href="{{ url_for('index') }}">Kembali</a>
+    </div>
+  </body>
+</html>
