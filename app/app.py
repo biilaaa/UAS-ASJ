@@ -17,7 +17,7 @@ db = SQLAlchemy(app)
 
 # Model
 class Film(db.Model):
-    __tablename__ = 'listFilm'  # 👈 tambahkan ini agar cocok dengan nama tabel di MySQL
+    __tablename__ = 'listFilm'  
     id = db.Column(db.Integer, primary_key=True)
     judul = db.Column(db.String(100), nullable=False)
     sutradara = db.Column(db.String(100), nullable=False)
